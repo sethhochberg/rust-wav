@@ -1,0 +1,3 @@
+Simple project to read basic PCM WAV files into Rust, as a precursor to using Rust for signal processing.
+
+(Full disclosure: I'm learning Rust as I write, here, so this will probably be messy.)
