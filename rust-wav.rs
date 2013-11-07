@@ -37,5 +37,5 @@ fn load(filename: ~str) -> ~[~str] {
 }
 
 fn main() {
-  //do nothing, placeholder to use the compiler for syntax checking
+  println(load(~"test.wav")[0]);
 }
