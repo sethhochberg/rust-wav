@@ -1,3 +1,7 @@
+extern mod std;
+use std::path;
+use std::io;
+
 struct Header {
 //RIFF Header
   chunk_id: @str,
@@ -17,6 +21,19 @@ struct Header {
 //Data Subchunk
   subchunk2_id: @str,
   subchunk2_size: int
+}
+
+fn load(filename: ~str) -> ~[~str] {
+   let read_result: Result<@Reader, ~str>;
+   read_result = io::file_reader(~path::Path(filename));
+
+  if read_result.is_ok() {
+    let file = read_result.unwrap();
+    return file.read_lines();
+  }
+
+  println(fmt!("Error reading file: %?", read_result.unwrap_err()));
+  return ~[];
 }
 
 fn main() {
